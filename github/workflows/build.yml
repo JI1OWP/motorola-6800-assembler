@@ -1,1 +1,25 @@
+name: build-windows
 
+on: [workflow_dispatch]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - run: sudo apt-get update && sudo apt-get install -y mingw-w64
+
+    - run: x86_64-w64-mingw32-gcc -O2 -o m6800asm.exe *.c
+
+    - uses: actions/upload-artifact@v4
+
+      with:
+
+      name: m6800asm
+
+      path: m6800asm.exe
