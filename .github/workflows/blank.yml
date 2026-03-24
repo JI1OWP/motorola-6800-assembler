@@ -1,8 +1,10 @@
 name: build
+
 on: workflow_dispatch
+
 jobs:
   check:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
--   name: test
-    run: echo ok
+      - name: test
+        run: echo ok
